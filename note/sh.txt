@@ -1,0 +1,49 @@
+lsof -i:xxx  #查看端口所在pid
+
+scp [参数] [原路径] [目标路径]
+
+scp local_file remote_username@remote_ip:remote_file #复制文件到远程
+scp root@192.168.120.204:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/  #远程复制到本地
+
+export 环境变量设置
+
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/;/usr/local/sbin"
+export M2_HOME=/usr/local/maven3
+export M2=$M2_HOME/bin
+export JAVA_HOME=/usr/java/jdk1.8.0_171-amd64/
+export PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin
+
+chmod +x run*.sh  #授予执行权限
+
+tail -f xxx //实时滚动查看日志
+
+ps -ef|grep xxx
+ps -aux|grep xxx
+ps -def|grep xxx
+ps -aux|grep xxx| grep -v grep | awk '{print $2}'
+
+nohup command &    #后台运行 运行日志输出到nohub.out
+nohup java -jar its-jobs-1.0-SNAPSHOT.jar --spring.profiles.active=vt >its-jobs.out 2>its-jobs_err.out &
+
+#循环更新代码
+for shname in `ls`
+do	
+	if [ -d "$shname" ]; then
+		echo $shname
+		cd $shname
+		git pull
+		cd ..
+	fi
+done
+
+#输出重定向
+echo 'hello' > h.o
+#错误重定向
+echo 'error' > error.o
+
+tar -xf all.tar
+
+passwd xxx #修改xxx用户的密码，不填xxx修改当前用户密码
+
+
+
